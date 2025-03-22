@@ -1,38 +1,80 @@
-# sv
+# PasteIt
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+PasteIt is a modern, efficient pastebin service that allows users to quickly share code snippets, text, and other content with others.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Simple Sharing**: Easily share text and code snippets with a unique URL
+- **Syntax Highlighting**: Support for multiple programming languages
+- **Customizable Expiration**: Set how long your pastes should be available
+- **Private Pastes**: Option to create password-protected pastes
+- **Mobile-Friendly**: Responsive design for all devices
 
+## Installation
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Setup
+
+1. Clone the repository
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+git clone https://github.com/bullet-ant/pasteit.git
+cd pasteit/ui
 ```
 
-## Developing
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
+3. Start the development server
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# or
+yarn dev
 ```
 
-## Building
+## Usage
 
-To create a production version of your app:
+### Creating a Paste
+
+1. Navigate to the home page
+2. Enter your content in the editor
+3. Configure settings (expiration, privacy, syntax highlighting)
+4. Click "Create Paste"
+5. Share the generated URL with others
+
+### API Usage
+
+PasteIt also offers a simple API for programmatic access:
 
 ```bash
-npm run build
+# Create a new paste
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"content": "Hello World", "expiration": "1d"}' \
+  https://pasteit.example.com/api/paste
 ```
 
-You can preview the production build with `npm run preview`.
+## Contributing
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Inspired by other pastebin services like Pastebin.com and GitHub Gist
