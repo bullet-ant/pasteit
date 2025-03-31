@@ -90,6 +90,11 @@
 			View
 		</a>
 		<div class="flex space-x-3">
+			{#if paste.userId}
+				<a href={`/user/${paste.userId}`} class="text-gray-600 hover:underline dark:text-gray-300">
+					Author
+				</a>
+			{/if}
 			<a
 				href={`/pastes/${paste.shortId}/raw`}
 				class="text-gray-600 hover:underline dark:text-gray-300"
@@ -97,11 +102,6 @@
 			>
 				Raw
 			</a>
-			{#if paste.userId}
-				<a href={`/user/${paste.userId}`} class="text-gray-600 hover:underline dark:text-gray-300">
-					Author
-				</a>
-			{/if}
 		</div>
 	</div>
 </div>
