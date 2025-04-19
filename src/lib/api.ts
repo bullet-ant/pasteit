@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { get } from 'svelte/store';
+import { PUBLIC_API_BASE } from '$env/static/public';
 import type {
 	Paste,
 	User,
@@ -9,7 +9,7 @@ import type {
 	PaginationResult
 } from './types';
 
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = PUBLIC_API_BASE || 'http://localhost:3000/api';
 
 // Helper to get auth token from local storage
 const getToken = (): string | null => {
