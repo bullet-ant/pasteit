@@ -39,7 +39,7 @@
 			loading = false;
 
 			// Check if user is the owner
-			if ($isAuthenticated && $currentUser && paste.userId === $currentUser.id) {
+			if ($isAuthenticated && $currentUser && paste.userId === $currentUser._id) {
 				isOwner = true;
 			}
 
@@ -112,7 +112,7 @@
 <div class="mx-auto max-w-6xl">
 	{#if loading}
 		<div class="flex items-center justify-center py-12">
-			<div class="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-blue-500"></div>
+			<div class="h-12 w-12 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 		</div>
 	{:else if passwordRequired}
 		<div class="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
@@ -144,7 +144,7 @@
 				<div>
 					<button
 						type="submit"
-						class="flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+						class="flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 						disabled={loading}
 					>
 						{loading ? 'Checking...' : 'Submit'}
@@ -214,7 +214,7 @@
 				>
 					<button
 						on:click={copyToClipboard}
-						class="absolute right-2 top-2 cursor-pointer rounded bg-blue-600 px-2 py-1 text-xs font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+						class="absolute top-2 right-2 cursor-pointer rounded bg-blue-600 px-2 py-1 text-xs font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
 						title="Copy to clipboard"
 					>
 						<div class="flex items-center gap-1">
@@ -260,7 +260,7 @@
 					<a
 						href={`/pastes/${paste.shortId}/raw`}
 						target="_blank"
-						class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+						class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm leading-4 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
 					>
 						Raw
 					</a>
@@ -268,7 +268,7 @@
 					{#if paste.userId}
 						<a
 							href={`/user/${paste.userId}`}
-							class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+							class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm leading-4 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							Author
 						</a>
@@ -279,14 +279,14 @@
 					<div class="flex space-x-3">
 						<a
 							href={`/pastes/${paste.shortId}/edit`}
-							class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-3 py-1 text-sm font-medium leading-4 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+							class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-3 py-1 text-sm leading-4 font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
 						>
 							Edit
 						</a>
 
 						<button
 							on:click={deletePaste}
-							class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-3 py-1 text-sm font-medium leading-4 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+							class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-3 py-1 text-sm leading-4 font-medium text-white hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none"
 						>
 							Delete
 						</button>

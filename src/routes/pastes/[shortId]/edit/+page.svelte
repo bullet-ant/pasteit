@@ -30,7 +30,7 @@
 			paste = await api.pastes.get(shortId);
 
 			// Check if user is the owner
-			if (!$isAuthenticated || !$currentUser || paste.userId !== $currentUser.id) {
+			if (!$isAuthenticated || !$currentUser || paste.userId !== $currentUser._id) {
 				error = 'You do not have permission to edit this paste.';
 			}
 
@@ -69,7 +69,7 @@
 
 	{#if loading}
 		<div class="flex items-center justify-center py-12">
-			<div class="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-blue-500"></div>
+			<div class="h-12 w-12 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 		</div>
 	{:else if error}
 		<div

@@ -105,6 +105,12 @@ export const api = {
 	users: {
 		getPastes: (userId: string) => fetchApi<PaginationResult<Paste>>(`/users/${userId}/pastes`),
 
-		get: (userId: string) => fetchApi<User>(`/users/${userId}`)
+		get: (userId: string) => fetchApi<User>(`/users/${userId}`),
+
+		changePassword: (oldPassword: string, newPassword: string) =>
+			fetchApi<void>('/auth/change-password', {
+				method: 'POST',
+				body: JSON.stringify({ oldPassword, newPassword })
+			})
 	}
 };

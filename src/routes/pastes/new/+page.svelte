@@ -22,7 +22,7 @@
 		try {
 			const newPaste = await api.pastes.create({
 				...pasteData,
-				userId: $currentUser?.id || null
+				userId: $currentUser?._id || null
 			});
 			goto(`/pastes/${newPaste.paste?.shortId}`);
 		} catch (e: any) {
