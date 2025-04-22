@@ -113,7 +113,9 @@
 <div class="mx-auto max-w-6xl">
 	{#if loading}
 		<div class="flex items-center justify-center py-12">
-			<div class="h-12 w-12 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
+			<div
+				class="h-12 w-12 animate-spin rounded-full border-4 border-t-4 border-gray-200 border-t-blue-500"
+			></div>
 		</div>
 	{:else if passwordRequired}
 		<div class="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
