@@ -5,6 +5,7 @@
 	import { api } from '$lib/api';
 	import { formatDate, isAuthenticated, currentUser } from '$lib/utils';
 	import type { Paste } from '$lib/types';
+	import { PUBLIC_API_BASE } from '$env/static/public';
 
 	let paste: Paste | null = null;
 	let loading = true;
@@ -66,7 +67,7 @@
 		try {
 			// This is a theoretical API endpoint that would check the password
 			// You would need to implement this on your backend
-			paste = await fetch(`http://localhost:3000/api/pastes/${shortId}`, {
+			paste = await fetch(`${PUBLIC_API_BASE}/pastes/${shortId}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -137,7 +138,7 @@
 						id="password"
 						bind:value={passwordInput}
 						required
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+						class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
 					/>
 				</div>
 
