@@ -147,12 +147,15 @@
 
 			<form on:submit|preventDefault={checkPassword} class="space-y-4">
 				<div>
-					<label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+					<label
+						for="paste-password"
+						class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+					>
 						Password
 					</label>
 					<input
 						type="password"
-						id="password"
+						id="paste-password"
 						bind:value={passwordInput}
 						required
 						class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
@@ -296,10 +299,26 @@
 				<div class="flex space-x-3">
 					<button
 						on:click={shareLink}
-						class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm leading-4 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+						class="inline-flex items-center rounded-md border border-gray-300 {linkCopied
+							? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+							: 'bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-200'} px-3 py-1 text-sm leading-4 font-medium shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:hover:bg-gray-700"
 					>
 						{#if linkCopied}
-							Link Copied!
+							<span class="flex items-center">
+								<svg
+									class="mr-1 h-4 w-4"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								Copied!
+							</span>
 						{:else}
 							<span>Share</span>
 							<svg

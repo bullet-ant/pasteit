@@ -3,6 +3,19 @@
 	import type { Paste } from '$lib/types';
 
 	export let paste: Paste;
+
+	let linkCopied = false;
+
+	function shareLink() {
+		const url = `${window.location.origin}/pastes/${paste.shortId}`;
+		navigator.clipboard.writeText(url);
+		linkCopied = true;
+
+		// Reset after 2 seconds
+		setTimeout(() => {
+			linkCopied = false;
+		}, 2000);
+	}
 </script>
 
 <div
@@ -96,30 +109,47 @@
 				</a>
 			{/if}
 			<button
-				on:click={() => {
-					const url = `${window.location.origin}/pastes/${paste.shortId}`;
-					navigator.clipboard.writeText(url);
-				}}
-				class="flex items-center text-blue-600 hover:underline dark:text-blue-400"
+				on:click={shareLink}
+				class="flex items-center {linkCopied
+					? 'text-green-600 dark:text-green-400'
+					: 'text-blue-600 dark:text-blue-400'} hover:underline"
 				title="Copy link to clipboard"
 			>
-				<span>Share</span>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="ml-1 h-4 w-4"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<circle cx="18" cy="5" r="3"></circle>
-					<circle cx="6" cy="12" r="3"></circle>
-					<circle cx="18" cy="19" r="3"></circle>
-					<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-					<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-				</svg>
+				{#if linkCopied}
+					<span class="flex items-center">
+						<svg
+							class="mr-1 h-4 w-4"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+						Copied!
+					</span>
+				{:else}
+					<span>Share</span>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="ml-1 h-4 w-4"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<circle cx="18" cy="5" r="3"></circle>
+						<circle cx="6" cy="12" r="3"></circle>
+						<circle cx="18" cy="19" r="3"></circle>
+						<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+						<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+					</svg>
+				{/if}
 			</button>
 			<!-- <a
 				href={`/pastes/${paste.shortId}/raw`}
