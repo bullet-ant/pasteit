@@ -78,7 +78,7 @@
 		</div>
 
 		<div class="mt-4 flex text-sm text-gray-500 dark:text-gray-400">
-			<div class="text-left">
+			<div class="flex w-full justify-between">
 				<p>Created: {formatDate(paste.createdAt)}</p>
 				<p>Expires: {formatDate(paste.expiresAt)}</p>
 			</div>
