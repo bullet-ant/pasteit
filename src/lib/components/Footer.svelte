@@ -14,7 +14,9 @@
 			<!-- Essential links -->
 			<div class="flex space-x-6">
 				<a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-				<a href="/pastes/explore" class="hover:text-blue-600 dark:hover:text-blue-400">Explore</a>
+				<a href="/pastes/explore" class="hover:text-blue-600 dark:hover:text-blue-400"
+					>Explore Pastes</a
+				>
 			</div>
 		</div>
 	</div>
