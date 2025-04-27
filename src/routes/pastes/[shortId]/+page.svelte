@@ -213,7 +213,7 @@
 				</div>
 				<div
 					class="relative mb-4 overflow-x-auto rounded bg-gray-100 p-4 font-mono text-sm text-gray-800 dark:bg-gray-900 dark:text-gray-200"
-					style="white-space: pre-wrap; word-wrap: break-word;"
+					style="white-space: pre-wrap; word-break: break-word; tab-size: 4;"
 				>
 					<button
 						on:click={copyToClipboard}
@@ -242,7 +242,7 @@
 							<span>{copied ? 'Copied!' : 'Copy'}</span>
 						</div>
 					</button>
-					<code class="font-mono">{paste.content}</code>
+					<code class="block font-mono">{paste.content}</code>
 				</div>
 
 				{#if paste.tags && paste.tags.length > 0}

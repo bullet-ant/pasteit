@@ -15,7 +15,7 @@
 >
 	<Header />
 
-	<main class="container mx-auto flex-grow p-10">
+	<main class="container mx-auto flex-grow px-3 py-4 sm:px-6 md:px-10 md:py-8">
 		<slot />
 	</main>
 

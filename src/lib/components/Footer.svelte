@@ -2,12 +2,9 @@
 	const year = new Date().getFullYear();
 </script>
 
-<footer
-	class="mt-auto border-t border-gray-200 py-6 text-sm text-gray-600 dark:border-gray-700 dark:text-gray-400"
->
-	<div class="container mx-auto px-10">
-		<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-			<!-- Logo and copyright -->
+<footer class="bg-gray-800 text-white">
+	<div class="container mx-auto px-3 py-2 sm:px-6 sm:py-4 md:px-10">
+		<div class="flex flex-col items-center justify-between gap-2 md:flex-row">
 			<div class="flex items-center">
 				<span class="font-semibold">PasteIt</span>
 				<span class="mx-2">•</span>
