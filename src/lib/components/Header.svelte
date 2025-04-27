@@ -28,7 +28,7 @@
 </script>
 
 <header class="bg-gray-800 text-white shadow-md">
-	<div class="container mx-auto px-4 py-3">
+	<div class="container mx-auto px-10 py-4">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center space-x-6">
 				<a href="/" class="text-xl font-bold">PasteIt</a>
