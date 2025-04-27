@@ -260,13 +260,13 @@
 
 			<div class="flex items-center justify-between bg-gray-50 px-6 py-4 dark:bg-gray-700">
 				<div class="flex space-x-3">
-					<a
+					<!-- <a
 						href={`/pastes/${paste.shortId}/raw`}
 						target="_blank"
 						class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1 text-sm leading-4 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
 					>
 						Raw
-					</a>
+					</a> -->
 
 					{#if paste.userId}
 						<a

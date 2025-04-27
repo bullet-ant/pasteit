@@ -95,13 +95,13 @@
 					Author
 				</a>
 			{/if}
-			<a
+			<!-- <a
 				href={`/pastes/${paste.shortId}/raw`}
 				class="text-gray-600 hover:underline dark:text-gray-300"
 				target="_blank"
 			>
 				Raw
-			</a>
+			</a> -->
 		</div>
 	</div>
 </div>
