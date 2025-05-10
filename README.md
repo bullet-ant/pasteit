@@ -50,16 +50,6 @@ yarn dev
 4. Click "Create Paste"
 5. Share the generated URL with others
 
-### API Usage
-
-PasteIt also offers a simple API for programmatic access:
-
-```bash
-# Create a new paste
-curl -X POST -H "Content-Type: application/json" \
-  -d '{"content": "Hello World", "expiration": "1d"}' \
-  https://pasteit.example.com/api/paste
-```
 
 ## Contributing
 
