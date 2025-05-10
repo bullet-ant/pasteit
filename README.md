@@ -22,7 +22,7 @@ PasteIt is a modern, efficient pastebin service that allows users to quickly sha
 1. Clone the repository
 ```bash
 git clone https://github.com/bullet-ant/pasteit.git
-cd pasteit/ui
+cd pasteit
 ```
 
 2. Install dependencies
